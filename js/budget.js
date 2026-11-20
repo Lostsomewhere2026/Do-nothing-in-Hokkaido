@@ -1,9 +1,9 @@
 /* 預算管理：記帳、匯率換算、分類預算、兩人分帳 */
 const Budget = (() => {
-  const CUR = {JPY:"日圓 ¥", TWD:"台幣 NT$", MYR:"令吉 RM"};
-  const SYM = {JPY:"¥", TWD:"NT$", MYR:"RM"}, CURN = {JPY:"日圓", TWD:"台幣", MYR:"令吉"};
-  const DEF = { base:"MYR", rates:{JPY:0.0286, TWD:0.143, MYR:1}, ratesNote:"預設匯率只是佔位數字，請用「更新即時匯率」或自行輸入", total:0, planned:{}, people:["我","男朋友"] };
-  const load = () => { let s = Store.get("bud:set", {}); if(s.rates && !s.base){ s = { people:s.people, ratesNote:"" }; } const base = s.base || DEF.base; return { ...DEF, ...s, base, rates:{...DEF.rates, ...(s.rates||{}), [base]:1}, planned:s.planned||{}, people:(s.people&&s.people.length?s.people:DEF.people) }; };
+  const CUR = {JPY:"日圓 ¥", MYR:"令吉 RM"};
+  const SYM = {JPY:"¥", MYR:"RM"}, CURN = {JPY:"日圓", MYR:"令吉"};
+  const DEF = { base:"MYR", rates:{JPY:0.0286, MYR:1}, ratesNote:"預設匯率只是佔位數字，請用「更新即時匯率」或自行輸入", total:0, planned:{}, people:["我","男朋友"] };
+  const load = () => { let s = Store.get("bud:set", {}); if(s.rates && !s.base){ s = { people:s.people, ratesNote:"" }; } let base = s.base || DEF.base; if(!CURN[base]) base = "MYR"; return { ...DEF, ...s, base, rates:{...DEF.rates, ...(s.rates||{}), [base]:1}, planned:s.planned||{}, people:(s.people&&s.people.length?s.people:DEF.people) }; };
   const loadEx = () => Store.get("bud:ex", []);
   const saveSet = s => Store.set("bud:set", s);
   const saveEx = e => Store.set("bud:ex", e);
@@ -129,7 +129,7 @@ const Budget = (() => {
     try{
       const r = await fetch("https://open.er-api.com/v6/latest/JPY"); const j = await r.json();
       const R = k => k==="JPY" ? 1 : j.rates && j.rates[k]; const s = load();
-      if(!R("TWD") || !R("MYR")) throw 0;
+      if(!R("MYR")) throw 0;
       Object.keys(CURN).filter(k => k!==s.base).forEach(k => s.rates[k] = +(R(s.base)/R(k)).toFixed(5));
       s.ratesNote = "已於 " + new Date().toLocaleString("zh-TW") + " 更新（來源：open.er-api.com，僅供參考，實際以刷卡／換匯為準）";
       saveSet(s); refresh(); toast("已更新匯率");
