@@ -1,9 +1,9 @@
-/* 預算管理：記帳、匯率換算、分類預算、兩人分帳 */
+/* 預算管理：記帳、匯率換算、分類預算、多人分帳 */
 const Budget = (() => {
   const CUR = {JPY:"日圓 ¥", MYR:"令吉 RM"};
   const SYM = {JPY:"¥", MYR:"RM"}, CURN = {JPY:"日圓", MYR:"令吉"};
-  const DEF = { base:"MYR", rates:{JPY:0.0286, MYR:1}, ratesNote:"預設匯率只是佔位數字，請用「更新即時匯率」或自行輸入", total:0, planned:{}, people:["我","男朋友"] };
-  const load = () => { let s = Store.get("bud:set", {}); if(s.rates && !s.base){ s = { people:s.people, ratesNote:"" }; } let base = s.base || DEF.base; if(!CURN[base]) base = "MYR"; return { ...DEF, ...s, base, rates:{...DEF.rates, ...(s.rates||{}), [base]:1}, planned:s.planned||{}, people:(s.people&&s.people.length?s.people:DEF.people) }; };
+  const DEF = { base:"MYR", rates:{JPY:0.0286, MYR:1}, ratesNote:"預設匯率只是佔位數字，請用「更新即時匯率」或自行輸入", total:0, planned:{}, people:["第 1 組","第 2 組","第 3 組"] };
+  const load = () => { let s = Store.get("bud:set", {}); if(s.rates && !s.base){ s = { people:s.people, ratesNote:"" }; } if(s.people && ((s.people.length===2 && s.people[0]==="我" && s.people[1]==="男朋友") || (s.people.length===6 && s.people[1]==="旅伴 2" && s.people[5]==="旅伴 6"))) s = {...s, people:null}; let base = s.base || DEF.base; if(!CURN[base]) base = "MYR"; return { ...DEF, ...s, base, rates:{...DEF.rates, ...(s.rates||{}), [base]:1}, planned:s.planned||{}, people:(s.people&&s.people.length?s.people:DEF.people) }; };
   const loadEx = () => Store.get("bud:ex", []);
   const saveSet = s => Store.set("bud:set", s);
   const saveEx = e => Store.set("bud:ex", e);
@@ -152,14 +152,28 @@ const Budget = (() => {
       else if(a==="rate-save"){ const s = load(); $$("[data-rate]").forEach(i => { s.rates[i.dataset.rate] = +i.value || s.rates[i.dataset.rate]; }); s.ratesNote = "手動設定於 " + new Date().toLocaleString("zh-TW"); saveSet(s); refresh(); toast("匯率已儲存"); }
       else if(a==="csv") csv();
       else if(a==="people"){
-        const s = load();
-        openModal(`<h3>兩位旅伴的名字</h3>${s.people.map((p,i)=>`<label class="f">旅伴 ${i+1}<input type="text" data-pn="${i}" value="${esc(p)}"></label>`).join("")}<p class="muted" style="font-size:.8rem">改名後，舊記錄的付款人也會一起更新。</p><div class="row-btn"><button class="btn" data-no>取消</button><button class="btn pri" data-save>儲存</button></div>`, m => {
+        const s = load(), used = new Set(loadEx().map(x => x.payer));
+        const rows = s.people.map(p => ({orig:p, name:p}));
+        const draw = m => { $("#pp-list",m).innerHTML = rows.map((r,i) => `<div class="frow" style="grid-template-columns:1fr auto;align-items:end"><label class="f">名字 ${i+1}<input type="text" data-pn="${i}" value="${esc(r.name)}" placeholder="例如：小明＆小美"></label><button class="btn sm ghost" data-pdel="${i}" aria-label="刪除">${ic("trash")}</button></div>`).join(""); };
+        openModal(`<h3>記帳名單</h3><p class="muted" style="font-size:.82rem;margin-top:-6px">可以填每個人，也可以填「一對」（例如 A＆B）。分帳時每個名字算一份。</p><div id="pp-list"></div><button class="btn sm" data-padd style="margin:6px 0 10px">${ic("plus")}新增名字</button><p class="muted" style="font-size:.8rem">改名後，舊記錄的付款人也會一起更新。已有支出的名字不能刪除。</p><div class="row-btn"><button class="btn" data-no>取消</button><button class="btn pri" data-save>儲存</button></div>`, m => {
+          draw(m);
+          const sync = () => $$("[data-pn]",m).forEach(i => rows[+i.dataset.pn].name = i.value);
+          m.addEventListener("click", e => {
+            if(e.target.closest("[data-padd]")){ sync(); rows.push({orig:null, name:""}); draw(m); return; }
+            const d = e.target.closest("[data-pdel]"); if(!d) return; sync();
+            const r = rows[+d.dataset.pdel];
+            if(rows.length <= 1){ toast("至少要保留一個名字"); return; }
+            if(r.orig && used.has(r.orig)){ toast("這個名字已有支出，不能刪除，可以改名"); return; }
+            rows.splice(+d.dataset.pdel, 1); draw(m);
+          });
           $("[data-no]",m).onclick = closeModal;
           $("[data-save]",m).onclick = () => {
-            const nn = $$("[data-pn]",m).map(i => i.value.trim() || "旅伴");
-            const map = {}; s.people.forEach((p,i) => map[p] = nn[i]);
+            sync(); const names = rows.map(r => r.name.trim());
+            if(names.some(n => !n)){ toast("名字不能留空"); return; }
+            if(new Set(names).size !== names.length){ toast("名字不能重複"); return; }
+            const map = {}; rows.forEach((r,i) => { if(r.orig) map[r.orig] = names[i]; });
             saveEx(loadEx().map(x => ({...x, payer: map[x.payer]||x.payer})));
-            s.people = nn; saveSet(s); closeModal(); refresh();
+            s.people = names; saveSet(s); closeModal(); refresh(); toast("已儲存");
           };
         });
       }
