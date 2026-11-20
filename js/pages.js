@@ -17,6 +17,7 @@ const Pages = (() => {
   }
   const flagsFor = ids => (ids||[]).map(flagOf).filter(Boolean);
   function flagChips(ids){
+    return "";
     return flagsFor(ids).map(f => `<a class="chip warn" href="#/home-flags" data-goflag="${f.id}">${ic("alert")}待確認：${esc(f.title.length>16?f.title.slice(0,16)+"…":f.title)}</a>`).join("");
   }
 
@@ -130,10 +131,6 @@ const Pages = (() => {
     <section class="blk"><div class="sec-h"><h2>每日行程</h2><span class="en">Itinerary</span><span class="rule"></span></div>
       <div class="quick">${T.days.map(d => `<a class="q ${d.n===0?"d0":""}" href="#/day/${d.n}"><div class="n">${d.n===0?"0":"DAY "+d.n}</div><div class="d">${fmtMD(d.date)}（${d.dow}）</div><div class="t">${esc(d.title)}</div><div class="r">${esc(d.route)}</div></a>`).join("")}</div></section>
 
-    <section class="blk"><div class="sec-h"><h2>需要你確認的事項</h2><span class="en">To confirm</span><span class="rule"></span></div>
-      <p class="muted" style="font-size:.9rem;margin-bottom:14px">行程一律以 PDF 為準，沒有擅自更動。以下是我在整理時發現「PDF 與你的需求、或與查到的資料不一致」的地方，確認後可勾選收起。</p>
-      <div class="flags" id="home-flags">${gflags.concat(dflags).map(flagCard).join("")}</div></section>
-
     <section class="blk"><div class="sec-h"><h2>航班與行李</h2><span class="en">Flights</span><span class="rule"></span></div>
       <div class="scroll-x"><table class="tbl"><tr><th>日期</th><th>航段</th><th>航班</th><th>時間</th></tr>${T.flights.map(f=>`<tr><td>${esc(f.date)}</td><td>${esc(f.route)}</td><td>${esc(f.no)}</td><td>${esc(f.time)}</td></tr>`).join("")}</table></div>
       <div class="scroll-x" style="margin-top:12px"><table class="tbl"><tr><th>航段</th><th>托運</th><th>手提</th></tr>${T.baggage.map(b=>`<tr><td>${esc(b.leg)}</td><td>${esc(b.check)}</td><td>${esc(b.carry)}</td></tr>`).join("")}</table></div>
@@ -150,8 +147,7 @@ const Pages = (() => {
     <section class="blk"><div class="sec-h"><h2>旅行工具</h2><span class="en">Tools</span><span class="rule"></span></div>
       <div class="quick">
         <a class="q" href="#/food"><div class="n" style="font-size:1.5rem">餐廳</div><div class="t">沿途補充推薦</div><div class="r">營業時間、價位、推薦菜色</div></a>
-        <a class="q" href="#/budget"><div class="n" style="font-size:1.5rem">預算</div><div class="t">記帳與分帳</div><div class="r">日圓／台幣／令吉，兩人分攤</div></a>
-        <a class="q" href="#/photos"><div class="n" style="font-size:1.5rem">相簿</div><div class="t">照片牆</div><div class="r">依 DAY 分組，自己上傳</div></a>
+        <a class="q" href="#/budget"><div class="n" style="font-size:1.5rem">預算</div><div class="t">記帳與分帳</div><div class="r">日圓／令吉，多人分攤</div></a>
         <a class="q" href="#/list"><div class="n" style="font-size:1.5rem">清單</div><div class="t">待辦與行李</div><div class="r">可勾選、可自行新增</div></a>
         <a class="q" href="#/weather"><div class="n" style="font-size:1.5rem">天氣</div><div class="t">各地預報</div><div class="r">即時 API + 官方警報連結</div></a>
         <a class="q" href="#/tools"><div class="n" style="font-size:1.5rem">備份</div><div class="t">匯出／匯入</div><div class="r">與旅伴同步資料</div></a>
@@ -184,7 +180,7 @@ const Pages = (() => {
     const d = dayOf(+n); if(!d) return notFound();
     const prev = dayOf(d.n-1), next = dayOf(d.n+1);
     const stay = d.stay ? lodgeOf(d.stay) : null;
-    const dfl = flagsFor(d.flags);
+    const dfl = [];
     return `
     <div class="daystrip"><div class="wrap">${T.days.map(x=>`<a href="#/day/${x.n}" class="${x.n===d.n?"on":""}"><b>${x.n===0?"D0":"D"+x.n}</b>${fmtMD(x.date)}</a>`).join("")}</div></div>
     <section class="dayhead"><div class="art">${ART.svg(d.scene||"hill",{snow:14})}</div><div class="veil"></div>
@@ -239,7 +235,7 @@ const Pages = (() => {
     });
     root.addEventListener("click", e => {
       const g = e.target.closest("[data-goflag]");
-      if(g){ e.preventDefault(); location.hash = "#/"; setTimeout(()=>{ const el = $("#flag-"+g.dataset.goflag); if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.style.outline="2px solid var(--blue)"; setTimeout(()=>el.style.outline="",1800);} }, 120); return; }
+      if(g){ e.preventDefault(); const here = $("#flag-"+g.dataset.goflag); if(here){ here.scrollIntoView({behavior:"smooth",block:"center"}); here.style.outline="2px solid var(--blue)"; setTimeout(()=>here.style.outline="",1800); return; } return; setTimeout(()=>{ const el = $("#flag-"+g.dataset.goflag); if(el){ el.scrollIntoView({behavior:"smooth",block:"center"}); el.style.outline="2px solid var(--blue)"; setTimeout(()=>el.style.outline="",1800);} }, 120); return; }
       const fd = e.target.closest("[data-fday]"), fc = e.target.closest("[data-fcu]");
       if(fd || fc){
         if(fd) fstate.day = fd.dataset.fday; if(fc) fstate.cuisine = fc.dataset.fcu;
