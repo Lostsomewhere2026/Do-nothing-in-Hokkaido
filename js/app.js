@@ -2,8 +2,8 @@
 (() => {
   const view = $("#view");
   const NAV = [
-    ["#/", "首頁", "home"], ["day", "行程", "cal"], ["#/food", "餐廳", "food"], ["#/budget", "預算", "coin"],
-    ["#/photos", "相簿", "camera"], ["#/list", "清單", "list"], ["#/weather", "天氣", "cloud"], ["#/tools", "備份", "down"]
+    ["#/", "首頁", "home"], ["day", "行程", "cal"], ["#/budget", "預算", "coin"],
+    ["#/list", "清單", "list"], ["#/weather", "天氣", "cloud"], ["#/tools", "備份", "down"]
   ];
   const dayLinks = () => T.days.map(d => `<a href="#/day/${d.n}"><b>${d.n===0?"DAY 0":"DAY "+d.n} · ${fmtMD(d.date)}</b><span>${esc(d.title)}</span></a>`).join("");
 
@@ -12,7 +12,7 @@
       ? `<div class="dd"><button class="navbtn" data-nav="day" aria-haspopup="true">${t} ▾</button><div class="dd-menu">${dayLinks()}</div></div>`
       : `<a href="${h}" data-nav="${h}">${t}</a>`).join("") + `<span class="countdown" id="cdn"></span>`;
     $("#tabbar").innerHTML = [
-      ["#/", "首頁", "home"], ["sheet-days", "行程", "cal"], ["#/food", "餐廳", "food"], ["#/budget", "預算", "coin"], ["#/photos", "相簿", "camera"], ["sheet-more", "更多", "more"]
+      ["#/", "首頁", "home"], ["sheet-days", "行程", "cal"], ["#/budget", "預算", "coin"], ["sheet-more", "更多", "more"]
     ].map(([h, t, i]) => h.startsWith("#") ? `<a href="${h}" data-nav="${h}">${ic(i)}<span>${t}</span></a>` : `<button data-sheet="${h}" data-nav="${h}">${ic(i)}<span>${t}</span></button>`).join("");
     const n = daysUntil(); const c = $("#cdn"); if(c) c.textContent = n > 0 ? `倒數 ${n} 天` : n === 0 ? "今天出發" : "";
   }

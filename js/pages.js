@@ -153,7 +153,6 @@ const Pages = (() => {
 
     <section class="blk"><div class="sec-h"><h2>旅行工具</h2><span class="en">Tools</span><span class="rule"></span></div>
       <div class="quick">
-        <a class="q" href="#/food"><div class="n" style="font-size:1.5rem">餐廳</div><div class="t">沿途補充推薦</div><div class="r">營業時間、價位、推薦菜色</div></a>
         <a class="q" href="#/budget"><div class="n" style="font-size:1.5rem">預算</div><div class="t">記帳與分帳</div><div class="r">日圓／令吉，多人分攤</div></a>
         <a class="q" href="#/list"><div class="n" style="font-size:1.5rem">清單</div><div class="t">待辦與行李</div><div class="r">可勾選、可自行新增</div></a>
         <a class="q" href="#/weather"><div class="n" style="font-size:1.5rem">天氣</div><div class="t">各地預報</div><div class="r">即時 API + 官方警報連結</div></a>
