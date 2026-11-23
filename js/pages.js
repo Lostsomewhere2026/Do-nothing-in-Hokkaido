@@ -79,7 +79,7 @@ const Pages = (() => {
     const icon = dn.mode==="walk"?"walk":dn.mode==="transit"?"train":"car";
     const link = dn.from && dn.to ? `<a target="_blank" rel="noopener" href="${GM.dir(dn.to, dn.from, mode)}">路線 ↗</a>` : "";
     return `<div class="drive"><div></div><div class="rail"></div><div class="pillrow">
-      <span class="tag">${ic(icon)}${E(dn.t)}${dn.est?"（估算）":""}</span>${dn.note?`<span class="muted">${E(dn.note)}</span>`:""}${link}${flagChips(dn.flags)}</div></div>`;
+      <span class="tag">${ic(icon)}${E(dn.t)}${dn.est && !String(dn.t).includes("估算")?"（估算）":""}</span>${dn.note?`<span class="muted">${E(dn.note)}</span>`:""}${link}${flagChips(dn.flags)}</div></div>`;
   }
   function tlItem(it, d){
     const hasPhoto = it.type==="spot" || it.type==="lodging";
