@@ -41,18 +41,18 @@ lodging: {
     name:"Sapporo Stream Hotel", city:"札幌", nights:"12/13 – 12/15（2 晚）",
     address:"4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo, Hokkaido 064-0804, Japan",
     map:"Sapporo Stream Hotel, 4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo",
-    room:"各自訂房；訂單示例為 Superior Twin Room。早餐按各自訂單。",
+    room:"各自訂房；Superior Twin Room。早餐按各自訂單。",
     inout:"12/13 15:00 後入住；12/15 11:00 前退房",
-    price:"RM1,757.26（PDF 訂單截圖中的單份訂單金額，不代表 6 人總額）",
+    price:"RM1,757.26（2人）",
     kind:"hotel"
   },
   itoh: {
     name:"Guest House Itoh（Airbnb）", city:"旭川（西神樂）", nights:"12/15 – 12/17（2 晚）",
     address:"25 Gō-543-58 Nishikagura 3 Sen, Asahikawa-shi, Hokkaidō 078-8383, Japan",
     map:"25 Gō-543-58 Nishikagura 3 Sen, Asahikawa-shi, Hokkaidō 078-8383, Japan",
-    room:"6 人一起入住；3 張雙人床（按旅伴確認安排）。不含早餐。",
+    room:"6 人一起入住；3 張雙人床。不含早餐。",
     inout:"12/15 預計 19:30 Check-in；12/17 10:00 前退房",
-    price:"RM3,759.94（PDF 訂單金額，6 人合住）",
+    price:"RM3,759.94（6 人合住）",
     kind:"hotel"
   },
   cross: {
@@ -61,7 +61,7 @@ lodging: {
     map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome, Chuo Ward, Sapporo",
     room:"各自訂房；Cross Floor。早餐按各自訂單。可使用住客專屬 Meet Lounge 及公共浴場，具體以入住權益為準。",
     inout:"12/17 15:00 後入住（若提前抵達可先詢問行李寄存）；12/19 11:00 前退房",
-    price:"RM1,713.20（PDF 訂單截圖中的單份訂單金額，不代表 6 人總額）",
+    price:"RM1,713.20（2人）",
     kind:"hotel"
   }
 },
