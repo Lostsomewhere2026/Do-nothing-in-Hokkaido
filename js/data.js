@@ -140,7 +140,7 @@ days: [
     "建議路線步行時間（僅供規劃）：圓山公園至北海道神宮約 10–15 分鐘；北海道神宮至圓山公園站約 10–15 分鐘。地鐵前往市中心及狸小路區域可減少長距離步行。",
     "若雪勢較大或路面結冰，建議減少步行，改搭地鐵或短程計程車。",
     "主要手信採購安排在狸小路；12/19 新千歲機場再補買。",
-    "Taxi 費用是「一輛車」的概算，約合 ¥5,200–6,800（三段加總；若不去宮越屋，只剩神宮→PICANTE 一段）。依札幌・小樽地區 2025/12 起的運價推算（起跳 ¥600，之後約每 272 公尺加 ¥100），冬季可能再加收 2 成，距離為估算，實際以跳表為準。一般計程車通常坐 4 人，6 人需分乘 2 輛，或事先預約大型計程車。"
+    "Taxi 費用是「一輛車」的概算，約合 ¥6,800–10,000（三段加總；若不去宮越屋，只剩神宮→PICANTE 一段）。依札幌・小樽地區 2025/12 起的運價推算（起跳 ¥600，之後約每 272 公尺加 ¥100），冬季可能再加收 2 成，距離與時間為估算，實際以跳表為準。一般計程車通常坐 4 人，6 人需分乘 2 輛，或事先預約大型計程車。"
   ],
   flags:["f-rest"],
   items:[
@@ -156,11 +156,11 @@ days: [
       stay:"約 1.5 小時", hours:{t:"神宮 7:00 – 16:00（11/1–12/30 的開門時間；祈禱與授與所 9:00 起）；免費"},
       link:"https://www.hokkaidojingu.or.jp/",
       tips:["公園雪深處多，請穿防滑鞋。","神宮 16:00 閉門，請勿拖到太晚。"],
-      driveNext:{ t:"11:00–11:30　Taxi 約 30 分，約 ¥2,000–2,600／輛（估算）", mode:"car", est:true, from:"北海道神宮", to:"PICANTE 北13条本店 札幌" } },
+      driveNext:{ t:"11:00–11:30　Taxi 約 7–9 公里，約 15–25 分，約 ¥2,800–4,200／輛（估算）", mode:"car", est:true, from:"北海道神宮", to:"PICANTE 北13条本店 札幌" } },
     { id:"d2-lunch", time:"11:30–12:45", type:"meal", kind:"food", title:"PICANTE Soup Curry 午餐", en:"PICANTE Soup Curry",
       desc:"札幌湯咖哩老店，午餐吃湯咖哩。",
       meal:{ slot:"午餐", rec:["picante"] },
-      driveNext:{ t:"13:00–13:40　Taxi 約 40 分，約 ¥2,000–2,600／輛（Optional，估算）", mode:"car", est:true, from:"PICANTE 北13条本店 札幌", to:"宮越屋珈琲 THECAFE 札幌市中央区南19条西16丁目6-8" } },
+      driveNext:{ t:"13:00–13:40　Taxi 約 7–9 公里，約 30 分，約 ¥2,800–4,200／輛（Optional，估算）", mode:"car", est:true, from:"PICANTE 北13条本店 札幌", to:"宮越屋珈琲 THECAFE 札幌市中央区南19条西16丁目6-8" } },
     { id:"d2-cafe", time:"13:40–15:00", type:"spot", kind:"lounge", title:"宮越屋咖啡 THE CAFE（Optional）", en:"Miyakoshiya Coffee THE CAFE (Optional)",
       desc:"選擇性行程：宮越屋珈琲在藻岩山山腳的分店，木門與咖啡豆麻袋的老派咖啡廳，一樓禁煙、二樓吸煙區。視當天天氣與體力決定去不去。",
       address:"北海道札幌市中央区南19条西16丁目6-8", map:"宮越屋珈琲 THECAFE 札幌市中央区南19条西16丁目6-8",
@@ -457,7 +457,7 @@ restaurants: [
    price:"約 ¥1,000–1,999／人（Tabelog 標示）", priceNote:"",
    dishes:["やわらか仔羊のガーリック焼き","サクッとpicaチキン","SOUP CURRY KING（部落格推薦）"],
    why:"1996 年創業的札幌湯咖哩老店，入選食べログ カレー EAST 百名店 2024。",
-   transit:"地下鐵南北線 北13條站步行約 3 分；從北海道神宮 Taxi 約 30 分（估算）；前往宮越屋 Taxi 約 40 分（估算）",
+  transit:"地下鐵南北線 北13條站步行約 3 分；從北海道神宮 Taxi 約 15–25 分（估算）；前往宮越屋 Taxi 約 30 分（估算）",
    warn:"Tabelog 標示無法預約；12/14 是週一，請出發前確認當日有無休息。", tbc:true,
    src:"Hotpepper、るるぶ、sapporo.travel、Tabelog" },
  { id:"hanamaru", name:"四季 花まる すすきの店", jp:"四季 花まる すすきの店", area:"札幌", cuisine:"壽司／海鮮", kind:"food",
