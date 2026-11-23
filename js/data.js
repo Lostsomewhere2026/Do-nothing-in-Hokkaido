@@ -124,7 +124,7 @@ days: [
       stay:"—", hours:{t:"—"}, tips:["此時段已接近日落（約 16:00），路上多為夜間行車；冬季機場至札幌路段請預留彈性時間。"],
       driveNext:{ t:"約 1 小時（PDF）", mode:"car", note:"視路況及天氣", from:"新千歳空港", to:"Sapporo Stream Hotel" } },
     { id:"d1-in", time:"19:00", type:"lodging", kind:"hotel", title:"入住 Sapporo Stream Hotel", en:"Check-in", lodge:"stream",
-      desc:"15:00 後可入住；各自訂房。", pdf:"7pm 入住 Sapporo Stream Hotel。",
+      desc:"15:00 後可入住", pdf:"7pm 入住 Sapporo Stream Hotel。",
       address:"4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo 064-0804", map:"Sapporo Stream Hotel, 4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo" },
     { id:"d1-dinner", time:"19:30", type:"meal", kind:"food", title:"晚餐", en:"Dinner",
       desc:"PDF 未指定餐廳。酒店位於薄野一帶，下方為步行可達的候選。",
