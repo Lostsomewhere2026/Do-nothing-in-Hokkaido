@@ -359,32 +359,33 @@ days: [
 },
 /* ============================ DAY 7 ============================ */
 { n:7, date:"2026-12-19", dow:"六", title:"札幌 → 新千歲機場 → 吉隆坡", en:"Return to Kuala Lumpur", route:"Sapporo · CTS · KUL", scene:"airport",
-  summary:"清晨退房、搭 JR 到新千歲機場，補買手信，搭 AirAsia X 回吉隆坡。",
+  summary:"05:30 起床、06:00 從酒店出發，搭 JR 到新千歲機場，早餐在機場解決，搭 AirAsia X 回吉隆坡。",
   stay:null, charter:null, safety:false, weather:["sapporo","chitose"], mapMode:"transit",
   notes:[
-    "Trip.com 行程單建議從新千歲機場出發的航班至少提前 3 小時抵達機場；請盡量不要延遲出發。",
-    "機場購物安排在完成值機及行李托運後，仍須預留足夠時間前往登機口。"
+    "Trip.com 行程單建議從新千歲機場出發的航班至少提前 3 小時抵達機場；本日安排約 07:00 抵達，距 09:55 起飛約 2 小時 55 分。",
+    "早餐在機場解決，酒店早餐不吃；機場購物安排在完成值機及行李托運後，仍須預留足夠時間前往登機口。"
   ],
   flags:["f-airport"],
   items:[
-    { id:"d7-out", time:"清晨", type:"lodging", kind:"hotel", title:"Cross Hotel 退房", en:"Check-out", lodge:"cross",
-      desc:"提前退房；酒店早餐可按實際時間決定是否放棄。", pdf:"提前退房；酒店早餐可按實際時間決定是否放棄。（12/19 11:00 前退房）", map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome" },
-    { id:"d7-jr", time:"約 06:45", type:"transit", kind:"train", title:"札幌站搭乘 JR 前往新千歲機場", en:"JR Sapporo → New Chitose Airport",
-      desc:"車程約 37 分鐘（參考值；以實際列車為準）。", pdf:"車程約 37 分鐘（參考值；以實際列車為準）。", map:"札幌駅", flags:["f-airport"],
-      driveNext:{ t:"JR 約 37 分（PDF）", mode:"transit", from:"札幌駅", to:"新千歳空港" } },
-    { id:"d7-cts", time:"約 08:00", type:"spot", kind:"airport", title:"抵達新千歲機場 CTS", en:"New Chitose Airport",
+    { id:"d7-wake", time:"05:30", type:"lodging", kind:"hotel", title:"起床、整理行李", en:"Wake up & pack", lodge:"cross",
+      desc:"前一晚先把行李收好；早餐不在酒店吃。", map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome" },
+    { id:"d7-out", time:"06:00", type:"lodging", kind:"hotel", title:"Cross Hotel 退房、出發", en:"Check-out & depart", lodge:"cross",
+      desc:"提前退房，6 點準時出發。", pdf:"提前退房。（12/19 11:00 前退房）", map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome",
+      driveNext:{ t:"06:00–06:15　步行約 10–15 分（酒店→札幌站，估算）", mode:"walk", est:true, from:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome", to:"札幌駅" } },
+    { id:"d7-jr", time:"約 06:20–07:00", type:"transit", kind:"train", title:"札幌站搭乘 JR 前往新千歲機場", en:"JR Sapporo → New Chitose Airport",
+      desc:"建議搭 06:20–06:35 之間發車的班次（早晨約每 15 分鐘一班），車程約 37 分鐘，約 07:00–07:10 抵達。班次以 12/19 當天時刻為準，出發前請用 Google Maps 或 JR 北海道官網確認；趕不上就搭下一班。", pdf:"車程約 37 分鐘（參考值；以實際列車為準）。", map:"札幌駅", flags:["f-airport"],
+      driveNext:{ t:"JR 約 37 分", mode:"transit", from:"札幌駅", to:"新千歳空港" } },
+    { id:"d7-cts", time:"約 07:00–08:00", type:"spot", kind:"airport", title:"抵達新千歲機場 CTS：值機、托運、出境", en:"New Chitose Airport",
       desc:"辦理值機、托運行李及出境手續。", pdf:"辦理值機、托運行李及出境手續。", address:"新千歳空港 北海道千歳市美々987-22", map:"新千歳空港",
       stay:"—", hours:{t:"—"}, flags:["f-airport"] },
-    { id:"d7-shop", time:"辦理手續後", type:"spot", kind:"shop", title:"機場購物及早餐", en:"Airport shopping & breakfast",
-      desc:"補買北海道手信、吃早餐；留意登機時間。", pdf:"補買北海道手信、吃早餐；留意登機時間。", address:"新千歳空港", map:"新千歳空港" },
+    { id:"d7-shop", time:"08:00–09:15", type:"spot", kind:"shop", title:"機場早餐、補買手信", en:"Airport breakfast & shopping",
+      desc:"早餐在機場解決；補買北海道手信，留意登機時間。", pdf:"補買北海道手信、吃早餐；留意登機時間。", address:"新千歳空港", map:"新千歳空港" },
     { id:"d7-fl", time:"09:55", type:"flight", kind:"airport", title:"AirAsia X D79551", en:"CTS → Kuala Lumpur (KUL T2)",
       desc:"新千歲 CTS → 吉隆坡 KUL T2，09:55 起飛，17:40 抵達。", pdf:"回程航班。", map:"新千歳空港" },
     { id:"d7-end", time:"17:40", type:"spot", kind:"airport", title:"抵達吉隆坡國際機場 T2", en:"Kuala Lumpur (KUL T2)",
       desc:"旅程結束。", pdf:"旅程結束。", map:"Kuala Lumpur International Airport 2" }
   ]
 }
-],
-
 /* ---------------------------------------------------------------- 待確認事項 */
 /* level：warn（資料矛盾／風險）、info（提醒）。days：關聯的 DAY。 */
 flags: [
