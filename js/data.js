@@ -14,7 +14,7 @@ meta: {
   en: "HOKKAIDO TRAVEL JOURNAL",
   start: "2026-12-13", end: "2026-12-19",     // 旅行日期（倒數用）
   startLabel: "2026.12.13 SUN", endLabel: "12.19 SAT",
-  people: "6 位旅伴（3 對情侶）",
+  people: "6 位旅伴",
   route: ["札幌 Sapporo","美瑛 Biei","富良野 Furano","旭岳 Asahidake","旭川 Asahikawa","小樽 Otaru"],
   driver: "小王（LINE 聯絡）",
   vehicle: "Toyota Hiace（豐田海獅）",
