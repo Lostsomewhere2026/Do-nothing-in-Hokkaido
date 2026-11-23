@@ -85,7 +85,7 @@ days: [
 
 /* ============================ DAY 0 ============================ */
 { n:0, date:"2026-12-12", dow:"六", title:"吉隆坡出發", en:"Departure preparation", route:"Kuala Lumpur", scene:"airport",
-  summary:"Home-Airport-Tokyo",
+  summary:"Meet at the Airport",
   stay:null, charter:null, safety:false, weather:[], mapMode:"driving",
   notes:[],
   items:[
