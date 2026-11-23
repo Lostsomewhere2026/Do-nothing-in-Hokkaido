@@ -271,7 +271,6 @@ days: [
 },
 
 /* ============================ DAY 5 ============================ */
-/* ===== 取代整個 Day 5：從 { n:5, date 開始，到它結尾的 }, 為止 ===== */
 { n:5, date:"2026-12-17", dow:"四", title:"旭川 → 札幌＋聖誕燈飾", en:"Asahikawa → Sapporo", route:"Asahikawa · Sapporo", scene:"lights",
   summary:"10:00 從旭川出發，小王單程接送回札幌；午後逛中島公園，傍晚看電視塔、大通公園的白色燈樹節與聖誕市集。",
   stay:"cross", charter:"小王單程接送（Airbnb → 札幌）", safety:true, weather:["asahikawa","sapporo"], mapMode:"transit",
@@ -305,16 +304,14 @@ days: [
       hours:{t:"聖誕市集 2026/11/20–12/25，官方導覽冊標示大通公園 11:00–21:00；燈飾點燈時間與電視塔營業時間待確認", tbc:true},
       link:"https://www.sapporo.travel/event/winter/munich_christmas_market/?lang=en",
       tips:["夜間氣溫低，請穿足保暖；市集有帶座位的帳篷可避雪。"] },
-    { id:"d5-dinner", time:"18:30–20:30", type:"meal", kind:"food", title:"晚餐 Dinner（預留 2 小時）", en:"Dinner",
-      desc:"地點待定，以下為候選。", pdf:"建議約 18:30–20:30；地點待定。",
-      meal:{ slot:"晚餐", rec:["daruma","hanamaru","suage"] } },
-    { id:"d5-lounge", time:"21:00 以後", type:"lodging", kind:"lounge", title:"Cross Hotel Meet Lounge", en:"Cross Floor guests only", lodge:"cross",
+    { id:"d5-dinner", time:"18:30–20:00", type:"meal", kind:"food", title:"晚餐 Dinner（預留 1.5 小時）", en:"Dinner",
+      desc:"地點當天決定。" },
+    { id:"d5-lounge", time:"20:30 以後", type:"lodging", kind:"lounge", title:"Cross Hotel Meet Lounge", en:"Cross Floor guests only", lodge:"cross",
       desc:"Cross Floor 住客專屬休息空間。", pdf:"開放及使用資格以酒店確認內容為準。", map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome", flags:["f-lounge"] },
     { id:"d5-bath", time:"夜間", type:"lodging", kind:"lounge", title:"18 樓公共浴場", en:"Public Bath", lodge:"cross",
       desc:"可安排晚餐後泡湯，以酒店當日開放時間為準。", pdf:"以酒店當日開放時間為準。", map:"Cross Hotel Sapporo, Kita 2-jo Nishi 2-chome", flags:["f-lounge"] }
   ]
 },
-
 /* ============================ DAY 6 ============================ */
 { n:6, date:"2026-12-18", dow:"五", title:"小樽一日遊", en:"Otaru Day Trip", route:"Otaru", scene:"canal",
   summary:"搭 JR 前往小樽：運河、堺町通、壽司午餐，下午上天狗山看日落與夜景，傍晚回札幌吃居酒屋。",
