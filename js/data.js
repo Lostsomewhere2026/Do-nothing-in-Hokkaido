@@ -114,7 +114,7 @@ days: [
       desc:"吉隆坡 KUL → 東京成田 NRT T1，01:10 起飛，09:00 抵達。",
       map:"Narita International Airport Terminal 1", stay:"飛行時間 01:10 – 09:00" },
     { id:"d1-nrt", time:"09:00", type:"transit", kind:"airport", title:"成田機場：Brunch、休息及轉機", en:"Layover at Narita",
-      desc:"09:00 – 14:45 於機場內 Brunch、休息及轉機。", "不出機場；確認行李是否需提取及重新托運。",
+      desc:"09:00 – 14:45 於機場內 Brunch、休息及轉機。不出機場；確認行李是否需提取及重新托運。",
       map:"Narita International Airport Terminal 1", stay:"約 5 小時 45 分", flags:["f-bag"] },
     { id:"d1-mm", time:"14:45", type:"flight", kind:"airport", title:"Peach MM571", en:"Narita (NRT T1) → New Chitose (CTS)",
       desc:"東京成田 NRT T1 → 新千歲 CTS，14:45 起飛，16:35 抵達。", pdf:"國內航段。", map:"新千歳空港", stay:"飛行時間 14:45 – 16:35" },
