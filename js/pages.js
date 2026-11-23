@@ -98,7 +98,6 @@ const Pages = (() => {
           <h3>${esc(it.title)}${it.en?`<span class="en">${esc(it.en)}</span>`:""}</h3>
           ${it.desc?`<p class="desc">${esc(it.desc)}</p>`:""}
           ${facts.length?`<dl class="facts">${facts.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`:""}
-          ${it.pdf?`<div class="pdfnote"><b>PDF 原文</b>　${esc(it.pdf)}</div>`:""}
           ${it.tips&&it.tips.length?`<ul class="tips">${it.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}
           ${mq?`<div class="actions"><a class="btn sm" target="_blank" rel="noopener" href="${GM.search(mq)}">${ic("pin")}在地圖開啟</a><a class="btn sm pri" target="_blank" rel="noopener" href="${GM.dir(mq,"",modeD)}">${ic("nav")}導航前往</a>${it.link?`<a class="btn sm ghost" target="_blank" rel="noopener" href="${esc(it.link)}">${ic("ext")}官方網站</a>`:""}</div>`:(it.link?`<div class="actions"><a class="btn sm ghost" target="_blank" rel="noopener" href="${esc(it.link)}">${ic("ext")}官方網站</a></div>`:"")}
           ${rec}
