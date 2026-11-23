@@ -89,14 +89,14 @@ days: [
   stay:null, charter:null, safety:false, weather:[], mapMode:"driving",
   notes:[],
   items:[
+    { id:"d0-home", time:"21:00", type:"transit", title:"從家裡出發前往機場", en:"Leave home for the airport",
+      desc:"提早出發，預留交通時間。出門前再確認護照、機票與行李。" },
     { id:"d0-klia", time:"22:00", type:"spot", kind:"airport", title:"抵達吉隆坡國際機場", en:"Kuala Lumpur International Airport",
       desc:"辦理值機、行李托運及出境手續。",
-      pdf:"辦理值機、行李托運及出境手續。",
       address:"Kuala Lumpur International Airport, Sepang, Selangor", map:"Kuala Lumpur International Airport",
       stay:"—", hours:{t:"—"} },
-    { id:"d0-zg", time:"深夜", type:"flight", kind:"airport", title:"準備搭乘 ZIPAIR ZG062", en:"Boarding preparation",
-      desc:"建議預先確認線上值機及櫃台開放時間。",
-      pdf:"建議預先確認線上值機及櫃台開放時間。" }
+    { id:"d0-zg", time:"01:10", type:"flight", kind:"airport", title:"ZIPAIR ZG062 起飛", en:"KUL → Tokyo Narita T1",
+      desc:"12/13 凌晨 01:10 從吉隆坡起飛，09:00 抵達東京成田 T1。建議預先確認線上值機及櫃台開放時間。" }
   ]
 },
 
