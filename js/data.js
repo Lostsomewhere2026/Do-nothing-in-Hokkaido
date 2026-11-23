@@ -128,7 +128,7 @@ days: [
       address:"4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo 064-0804", map:"Sapporo Stream Hotel, 4 Chome-1-1 Minami 4 Jonishi, Chuo Ward, Sapporo" },
     { id:"d1-dinner", time:"19:30", type:"meal", kind:"food", title:"晚餐", en:"Dinner",
       desc:"PDF 未指定餐廳。酒店位於薄野一帶，下方為步行可達的候選。",
-      pdf:"7.30pm 晚餐（地點未指定）。", meal:{ slot:"晚餐", rec:["daruma","suage","hanamaru"] } }
+      pdf:"7.30pm 晚餐（地點未指定）。", meal:{ slot:"晚餐", rec:["nemuro","hanamaru"] } }
   ]
 },
 
@@ -443,6 +443,16 @@ restaurants: [
    transit:"薄野站 2 號出口步行約 2 分；距 Sapporo Stream Hotel 步行約 3–5 分（依地址推算）",
    warn:"價格資料較舊，請以現場菜單為準。", tbc:true,
    src:"aumo（營業時間）" },
+    { id:"nemuro", name:"根室花まる ココノススキノ店", jp:"回転寿司 根室花まる ココノススキノ店", area:"札幌・薄野", cuisine:"壽司／海鮮", kind:"food",
+   days:[1], meal:"晚餐",
+   address:"北海道札幌市中央区南4条西4丁目1-1 ココノススキノ B1F", map:"根室花まる ココノススキノ店",
+   hours:"11:00–21:00（L.O. 20:30）（待確認）", closed:"待確認", closedDow:null,
+   price:"待確認（回轉壽司，約 ¥3,000–5,000／人，依點餐而定）", priceNote:"",
+   dishes:["握壽司（依當季，可點鮭魚、鮪魚、帆立貝）","花咲蟹鐵砲湯（有供應時）","海膽（依當日進貨）"],
+   why:"就在 Sapporo Stream Hotel 同一棟樓的地下 1 樓，抵達當晚不必再移動；北海道知名的根室花まる回轉壽司，鮮度與口碑都穩定。",
+   transit:"與酒店同一棟樓（地址同為南4條西4丁目1-1），電梯或樓梯直接下樓",
+   warn:"最後點餐約 20:30，19:30 用餐沒問題，但若班機延誤請改選下一家；人多時需抽號碼牌候位。營業時間為網路資料，出發前請再確認。", tbc:true,
+   src:"johnny88.jp（札幌根室花まる店舖介紹）" },
  { id:"hanamaru", name:"四季 花まる すすきの店", jp:"四季 花まる すすきの店", area:"札幌", cuisine:"壽司／海鮮", kind:"food",
    days:[1,2,5], meal:"晚餐",
    address:"北海道札幌市中央区南四条西2-2-4 レコルトサッポロ 2F", map:"四季 花まる すすきの店",
