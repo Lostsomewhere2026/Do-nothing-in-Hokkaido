@@ -386,6 +386,7 @@ days: [
       desc:"旅程結束。", pdf:"旅程結束。", map:"Kuala Lumpur International Airport 2" }
   ]
 }
+],
 /* ---------------------------------------------------------------- 待確認事項 */
 /* level：warn（資料矛盾／風險）、info（提醒）。days：關聯的 DAY。 */
 flags: [
